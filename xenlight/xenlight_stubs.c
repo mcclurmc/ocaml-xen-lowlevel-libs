@@ -3719,6 +3719,18 @@ value stub_libxl_evenable_domain_death(value ctx, value domid, value user)
 	CAMLreturn(Val_unit);
 }
 
+value stub_libxl_domain_setmaxmem(value ctx, value domid, value max)
+{
+	CAMLparam3(ctx, domid, user);
+
+	int ret = libxl_domain_setmaxmem(CTX, Int_val(domid), Int_val(max));
+
+	if (ret != 0)
+		failwith_xl(ret, "domain_setmaxmem");
+
+	CAMLreturn(Val_unit);
+}
+
 /*
  * Local variables:
  *  indent-tabs-mode: t

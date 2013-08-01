@@ -746,6 +746,9 @@ module Async = functor (S: EVENT_USERS) -> struct
 		Callback.register "libxl_event_disaster_callback" event_disaster_callback;
 		event_users := EventSet.add user !event_users;
 		event_register_callbacks' ctx user
+
+	external domain_setmaxmem : ctx -> domid -> int -> unit = "stub_libxl_domain_setmaxmem"
+
 end
 
 let _ =

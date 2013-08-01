@@ -712,5 +712,8 @@ module Async : functor (S: EVENT_USERS) -> sig
 		event_occurs_callback:(S.event_user -> Event.t -> unit) ->
 		event_disaster_callback:(S.event_user -> event_type -> string -> int -> unit) ->
 		event_hooks
+
+	external domain_setmaxmem : ctx -> domid -> int -> unit = "stub_libxl_domain_setmaxmem"
+
 end
 
