@@ -3721,7 +3721,7 @@ value stub_libxl_evenable_domain_death(value ctx, value domid, value user)
 
 value stub_libxl_domain_setmaxmem(value ctx, value domid, value max)
 {
-	CAMLparam3(ctx, domid, user);
+	CAMLparam3(ctx, domid, max);
 
 	int ret = libxl_domain_setmaxmem(CTX, Int_val(domid), Int_val(max));
 
